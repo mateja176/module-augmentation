@@ -1,10 +1,27 @@
+import {
+  colors,
+  createMuiTheme,
+  Theme,
+  ThemeOptions,
+  ThemeProvider,
+} from '@material-ui/core';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
 
 function App() {
+  const theme: Theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        colors: {
+          green: colors.green[600],
+        },
+      } as ThemeOptions),
+    [],
+  );
+
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,7 +36,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </ThemeProvider>
   );
 }
 
