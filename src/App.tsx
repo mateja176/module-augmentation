@@ -1,6 +1,7 @@
 import {
   colors,
   createMuiTheme,
+  Theme,
   ThemeOptions,
   ThemeProvider,
 } from '@material-ui/core';
@@ -14,12 +15,12 @@ interface WithColors {
   };
 }
 
-declare module '@material-ui/core' {
+declare module '@material-ui/core/styles' {
   interface Theme extends WithColors {}
 }
 
 function App() {
-  const theme = React.useMemo(
+  const theme: Theme = React.useMemo(
     () =>
       createMuiTheme({
         colors: {
